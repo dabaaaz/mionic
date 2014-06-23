@@ -13,6 +13,7 @@ Tous les fichiers sources destinés à être transformés ou manipulés doivent 
 
 **Les processus à automatiser sont les suivants :**
 - compilation des sources SASS vers le dossier CSS, chaque fichier inclus dans style.scss est _[nomdevue].scss
+- vérification des CSS
 - optimisation des sources .GIF, .JPG, .PNG vers le dossier IMG
 - création des icones à partir du fichier icone.png vers le dossier RES
 - incrémentation du numéro de correction : majeur.fonction.correction
@@ -20,6 +21,7 @@ Tous les fichiers sources destinés à être transformés ou manipulés doivent 
 - concaténation des fichiers ctrl_[nomdevue].js en controllers.js
 - concaténation des fichiers views_[nomdevue].js en view.js
 - concaténation des fichiers services_[nomdevue].js en services.js
+- vérification des JS
 - archive des sources en [nom].[version].zip
 - publication des executable vers 1110.fr/[nom]
 - lancement des tests automatiques
