@@ -9,6 +9,22 @@ Pour chaque fonction identifiée pour la production d'une version suivre le proc
 - **MOTEUR** : l'interface est validée, utiliser des données brutes statiques, les appels de fonctions font maintenant appels à des classes et de vrais algorithmes. *Tests uniquement sur les classes et fonctions.*
 - **DATAS** : l'interface est validée, les algorithmes aussi, les données brutes statiques sont remplacées au profits de données issues d'une base ou d'un fichier. *Tests uniquement sur la gestion des données.*
 
+Tous les fichiers sources destinés à être transformés ou manipulés doivent se trouver dans le dossier _src_ et être manipulé par Grunt via le fichier *Gruntfile.js*
+
+**Les processus à automatiser sont les suivants :**
+- compilation des sources SASS vers le dossier CSS, chaque fichier inclus dans style.scss est _[nomdevue].scss
+- optimisation des sources .GIF, .JPG, .PNG vers le dossier IMG
+- création des icones à partir du fichier icone.png vers le dossier RES
+- incrémentation du numéro de correction : majeur.fonction.correction
+- incrémentation du numéro de fonction
+- concaténation des fichiers ctrl_[nomdevue].js en controllers.js
+- concaténation des fichiers views_[nomdevue].js en view.js
+- concaténation des fichiers services_[nomdevue].js en services.js
+- archive des sources en [nom].[version].zip
+- publication des executable vers 1110.fr/[nom]
+- lancement des tests automatiques
+- compilation simultanée pour iOS, Android et Firefoxos en lancement des émulseurs avec ces nouvelles versions
+
 # Firefox OS
 https://developer.mozilla.org/en-US/Apps/Tools_and_frameworks/common_libraries_and_frameworks
 
@@ -18,7 +34,7 @@ Helper how to run : https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App
 
 https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
 
-*/!\ Penser à ne pas laisser le livereload lors de l’exécution du simulateur Android /!\*
+**/!\ Penser à ne pas laisser le livereload lors de l’exécution du simulateur Android /!\**
 
 # Gestion des hooks (plugins / env / icons & splashes) :
 http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs
