@@ -83,7 +83,11 @@ public class NativeToJsMessageQueue {
         this.cordova = cordova;
         this.webView = webView;
         registeredListeners = new BridgeMode[4];
+<<<<<<< HEAD
         registeredListeners[0] = null;  // Polling. Requires no logic.
+=======
+        registeredListeners[0] = new PollingBridgeMode();
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         registeredListeners[1] = new LoadUrlBridgeMode();
         registeredListeners[2] = new OnlineEventsBridgeMode();
         registeredListeners[3] = new PrivateApiBridgeMode();
@@ -102,7 +106,12 @@ public class NativeToJsMessageQueue {
                 synchronized (this) {
                     activeListenerIndex = value;
                     BridgeMode activeListener = registeredListeners[value];
+<<<<<<< HEAD
                     if (!paused && !queue.isEmpty() && activeListener != null) {
+=======
+                    activeListener.reset();
+                    if (!paused && !queue.isEmpty()) {
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                         activeListener.onNativeToJsMessageAvailable();
                     }
                 }
@@ -117,6 +126,10 @@ public class NativeToJsMessageQueue {
         synchronized (this) {
             queue.clear();
             setBridgeMode(DEFAULT_BRIDGE_MODE);
+<<<<<<< HEAD
+=======
+            registeredListeners[activeListenerIndex].reset();
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         }
     }
 
@@ -249,7 +262,11 @@ public class NativeToJsMessageQueue {
     private void enqueueMessage(JsMessage message) {
         synchronized (this) {
             queue.add(message);
+<<<<<<< HEAD
             if (!paused && registeredListeners[activeListenerIndex] != null) {
+=======
+            if (!paused) {
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                 registeredListeners[activeListenerIndex].onNativeToJsMessageAvailable();
             }
         }        
@@ -264,7 +281,11 @@ public class NativeToJsMessageQueue {
         paused = value;
         if (!value) {
             synchronized (this) {
+<<<<<<< HEAD
                 if (!queue.isEmpty() && registeredListeners[activeListenerIndex] != null) {
+=======
+                if (!queue.isEmpty()) {
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                     registeredListeners[activeListenerIndex].onNativeToJsMessageAvailable();
                 }
             }   
@@ -278,8 +299,20 @@ public class NativeToJsMessageQueue {
     private abstract class BridgeMode {
         abstract void onNativeToJsMessageAvailable();
         void notifyOfFlush(boolean fromOnlineEvent) {}
+<<<<<<< HEAD
     }
     
+=======
+        void reset() {}
+    }
+
+    /** Uses JS polls for messages on a timer.. */
+    private class PollingBridgeMode extends BridgeMode {
+        @Override void onNativeToJsMessageAvailable() {
+        }
+    }
+
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     /** Uses webView.loadUrl("javascript:") to execute messages. */
     private class LoadUrlBridgeMode extends BridgeMode {
         final Runnable runnable = new Runnable() {
@@ -298,7 +331,11 @@ public class NativeToJsMessageQueue {
 
     /** Uses online/offline events to tell the JS when to poll for messages. */
     private class OnlineEventsBridgeMode extends BridgeMode {
+<<<<<<< HEAD
         boolean online = false;
+=======
+        private boolean online;
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         final Runnable runnable = new Runnable() {
             public void run() {
                 if (!queue.isEmpty()) {
@@ -306,7 +343,12 @@ public class NativeToJsMessageQueue {
                 }
             }                
         };
+<<<<<<< HEAD
         OnlineEventsBridgeMode() {
+=======
+        @Override void reset() {
+            online = false;
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
             webView.setNetworkAvailable(true);
         }
         @Override void onNativeToJsMessageAvailable() {
@@ -484,9 +526,28 @@ public class NativeToJsMessageQueue {
                   .append(success)
                   .append(",")
                   .append(status)
+<<<<<<< HEAD
                   .append(",[")
                   .append(pluginResult.getMessage())
                   .append("],")
+=======
+                  .append(",[");
+                switch (pluginResult.getMessageType()) {
+                    case PluginResult.MESSAGE_TYPE_BINARYSTRING:
+                        sb.append("atob('")
+                          .append(pluginResult.getMessage())
+                          .append("')");
+                        break;
+                    case PluginResult.MESSAGE_TYPE_ARRAYBUFFER:
+                        sb.append("cordova.require('cordova/base64').toArrayBuffer('")
+                          .append(pluginResult.getMessage())
+                          .append("')");
+                        break;
+                    default:
+                    sb.append(pluginResult.getMessage());
+                }
+                sb.append("],")
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                   .append(pluginResult.getKeepCallback())
                   .append(");");
             }

@@ -31,6 +31,10 @@
     if (self != nil) {
         _viewController = viewController;
         _commandQueue = _viewController.commandQueue;
+<<<<<<< HEAD
+=======
+        _callbackIdPattern = nil;
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     }
     return self;
 }
@@ -94,6 +98,28 @@
     }
 }
 
+<<<<<<< HEAD
+=======
+- (BOOL)isValidCallbackId:(NSString *)callbackId
+{
+    NSError *err = nil;
+    // Initialize on first use
+    if (_callbackIdPattern == nil) {
+        // Catch any invalid characters in the callback id.
+        _callbackIdPattern = [NSRegularExpression regularExpressionWithPattern:@"[^A-Za-z0-9._-]" options:0 error:&err];
+        if (err != nil) {
+            // Couldn't initialize Regex; No is safer than Yes.
+            return NO;
+        }
+    }
+    // Disallow if too long or if any invalid characters were found.
+    if (([callbackId length] > 100) || [_callbackIdPattern firstMatchInString:callbackId options:0 range:NSMakeRange(0, [callbackId length])]) {
+        return NO;
+    }
+    return YES;
+}
+
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
 - (void)sendPluginResult:(CDVPluginResult*)result callbackId:(NSString*)callbackId
 {
     CDV_EXEC_LOG(@"Exec(%@): Sending result. Status=%@", callbackId, result.status);
@@ -101,6 +127,14 @@
     if ([@"INVALID" isEqualToString : callbackId]) {
         return;
     }
+<<<<<<< HEAD
+=======
+    // This occurs when the callback id is malformed.
+    if (![self isValidCallbackId:callbackId]) {
+        NSLog(@"Invalid callback id received by sendPluginResult");
+        return;
+    }
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     int status = [result.status intValue];
     BOOL keepCallback = [result.keepCallback boolValue];
     NSString* argumentsAsJSON = [result argumentsAsJSON];

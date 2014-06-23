@@ -62,6 +62,10 @@ public class CordovaWebViewClient extends WebViewClient {
     CordovaInterface cordova;
     CordovaWebView appView;
     private boolean doClearHistory = false;
+<<<<<<< HEAD
+=======
+    boolean isCurrentlyLoading;
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
 
     /** The authorization tokens. */
     private Hashtable<String, AuthenticationToken> authenticationTokens = new Hashtable<String, AuthenticationToken>();
@@ -266,7 +270,13 @@ public class CordovaWebViewClient extends WebViewClient {
      */
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
+<<<<<<< HEAD
 
+=======
+        super.onPageStarted(view, url, favicon);
+        isCurrentlyLoading = true;
+        LOG.d(TAG, "onPageStarted(" + url + ")");
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         // Flush stale messages.
         this.appView.jsMessageQueue.reset();
 
@@ -290,6 +300,14 @@ public class CordovaWebViewClient extends WebViewClient {
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
+<<<<<<< HEAD
+=======
+        // Ignore excessive calls.
+        if (!isCurrentlyLoading) {
+            return;
+        }
+        isCurrentlyLoading = false;
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         LOG.d(TAG, "onPageFinished(" + url + ")");
 
         /**
@@ -344,6 +362,13 @@ public class CordovaWebViewClient extends WebViewClient {
      */
     @Override
     public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+<<<<<<< HEAD
+=======
+        // Ignore error due to stopLoading().
+        if (!isCurrentlyLoading) {
+            return;
+        }
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         LOG.d(TAG, "CordovaWebViewClient.onReceivedError: Error code=%s Description=%s URL=%s", errorCode, description, failingUrl);
 
         // Clear timeout flag

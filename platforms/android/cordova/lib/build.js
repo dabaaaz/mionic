@@ -74,7 +74,16 @@ module.exports.run = function(build_type) {
  * the script will error out. (should we error or just return undefined?)
  */
 module.exports.get_apk = function() {
+<<<<<<< HEAD
     var binDir = path.join(ROOT, 'ant-build');
+=======
+    var binDir = '';
+    if(!hasCustomRules()) {
+        binDir = path.join(ROOT, 'bin');
+    } else {
+        binDir = path.join(ROOT, 'ant-build');
+    }
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     if (fs.existsSync(binDir)) {
         var candidates = fs.readdirSync(binDir).filter(function(p) {
             // Need to choose between release and debug .apk.
@@ -87,13 +96,21 @@ module.exports.get_apk = function() {
                    a.t < b.t ? 1 : 0;
         });
         if (candidates.length === 0) {
+<<<<<<< HEAD
             console.error('ERROR : No .apk found in \'ant-build\' directory');
+=======
+            console.error('ERROR : No .apk found in ' + binDir + ' directory');
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
             process.exit(2);
         }
         console.log('Using apk: ' + candidates[0].p);
         return candidates[0].p;
     } else {
+<<<<<<< HEAD
         console.error('ERROR : unable to find project ant-build directory, could not locate .apk');
+=======
+        console.error('ERROR : unable to find project ' + binDir + ' directory, could not locate .apk');
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         process.exit(2);
     }
 }

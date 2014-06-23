@@ -50,8 +50,13 @@
 - (NSString*)JSONRepresentation
 {
     return [NSString stringWithFormat:
+<<<<<<< HEAD
            @"{ code: %d, message: '%@'}",
            self.code,
+=======
+           @"{ code: %ld, message: '%@'}",
+           (long)self.code,
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
            [self localizedDescription]
     ];
 }

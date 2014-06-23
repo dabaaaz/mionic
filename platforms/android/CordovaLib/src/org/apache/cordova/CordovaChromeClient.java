@@ -139,7 +139,10 @@ public class CordovaChromeClient extends WebChromeClient {
                     return true;
             }
         });
+<<<<<<< HEAD
         dlg.create();
+=======
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         dlg.show();
         return true;
     }
@@ -188,7 +191,10 @@ public class CordovaChromeClient extends WebChromeClient {
                     return true;
             }
         });
+<<<<<<< HEAD
         dlg.create();
+=======
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         dlg.show();
         return true;
     }
@@ -280,7 +286,10 @@ public class CordovaChromeClient extends WebChromeClient {
                             res.cancel();
                         }
                     });
+<<<<<<< HEAD
             dlg.create();
+=======
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
             dlg.show();
         }
         return true;

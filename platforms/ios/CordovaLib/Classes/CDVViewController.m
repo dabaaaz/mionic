@@ -506,8 +506,13 @@
 {
     // First, ask the webview via JS if it supports the new orientation
     NSString* jsCall = [NSString stringWithFormat:
+<<<<<<< HEAD
         @"window.shouldRotateToOrientation && window.shouldRotateToOrientation(%d);"
         , [self mapIosOrientationToJsOrientation:interfaceOrientation]];
+=======
+        @"window.shouldRotateToOrientation && window.shouldRotateToOrientation(%ld);"
+        , (long)[self mapIosOrientationToJsOrientation:interfaceOrientation]];
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     NSString* res = [webView stringByEvaluatingJavaScriptFromString:jsCall];
 
     if ([res length] > 0) {
@@ -697,7 +702,11 @@
         CDVPlugin* plugin = [pluginObjects objectForKey:pluginName];
         SEL selector = NSSelectorFromString(@"shouldOverrideLoadWithRequest:navigationType:");
         if ([plugin respondsToSelector:selector]) {
+<<<<<<< HEAD
             if ((BOOL)objc_msgSend(plugin, selector, request, navigationType) == YES) {
+=======
+            if (((BOOL (*)(id, SEL, id, int))objc_msgSend)(plugin, selector, request, navigationType) == YES) {
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                 return NO;
             }
         }

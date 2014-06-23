@@ -1,3 +1,7 @@
 int drawable icon 0x7f020000
+<<<<<<< HEAD
+=======
+int drawable screen 0x7f020001
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
 int string app_name 0x7f040000
 int xml config 0x7f030000
