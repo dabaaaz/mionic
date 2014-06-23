@@ -1,88 +1,47 @@
-Ionic App Base
+Bank in the pocket
 =====================
 
-A starting project for Ionic that optionally supports
-using custom SCSS.
+Projet d'application commerciale permettant la tenue simplifiées de comptes bancaires.
 
-## Using this project
 
-We recommend using the `ionic` utility to create new Ionic projects that are based on this project but use a ready-made starter template.
+# Bug firefox navigation routes
+https://developer.mozilla.org/en-US/Apps/Tools_and_frameworks/common_libraries_and_frameworks
+Mise à jour FXOS : http://forum.xda-developers.com/showthread.php?t=2628130 + elsimpicuitico.wordpress.com/firefoxos/
+Helper how to run : https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager
 
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
+# Firefox OS
+https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
+/!\ Penser à ne pas laisser le livereload lors de l’exécution du simulateur Android /!\
 
-```bash
-$ sudo npm install -g ionic
-```
+# Gestion des hooks (plugins / env / icons & splashes) :
+http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs
+Création des splashes Android (9-patches) : http://romannurik.github.io/AndroidAssetStudio/nine-patches.html
 
-Then run:
+# Simulateurs
+npm install -g ios-sim
+emulator -avd ionic -gpu on
 
-```bash
-$ sudo npm install -g ionic
-$ ionic start myProject tabs
-```
+# Les icones et splash screens
+Les icônes sont dans des et les splashscreens dans les dossiers
 
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/getting-started) page.
+# Les plugins de base
+org.apache.cordova.statusbar
+org.apache.cordova.dialogs
+org.apache.cordova.files
+org.apache.cordova.splashscreen
 
-## Installation
+# Using merges to Customize Each Platform
+While Cordova allows you to easily deploy an app for many different platforms, sometimes you need to add customizations. In that case, you don't want to modify the source files in various www directories within the top-level platforms directory, because they're regularly replaced with the top-level www directory's cross-platform source.
 
-While we recommend using the `ionic` utility to create new Ionic projects, you can use this repo as a barebones starting point to your next Ionic app.
+Instead, the top-level merges directory offers a place to specify assets to deploy on specific platforms. Each platform-specific subdirectory within merges mirrors the directory structure of the www source tree, allowing you to override or add files as needed. For example, here is how you might uses merges to boost the default font size for Android and Amazon Fire OS devices:
 
-To use this project as is, first clone the repo from GitHub, then run:
-
-```bash
-$ cd ionic-app-base
-$ sudo npm install -g cordova ionic gulp
-$ npm install
-$ gulp install
-```
-
-## Using Sass (optional)
-
-This project makes it easy to use Sass (the SCSS syntax) in your projects. This enables you to override styles from Ionic, and benefit from
-Sass's great features.
-
-Just update the `./scss/ionic.app.scss` file, and run `gulp` or `gulp watch` to rebuild the CSS files for Ionic.
-
-Note: if you choose to use the Sass method, make sure to remove the included `ionic.css` file in `index.html`, and then uncomment
-the include to your `ionic.app.css` file which now contains all your Sass code and Ionic itself:
-
-```html
-<!-- IF using Sass (run gulp sass first), then remove the CSS include above
-<link href="css/ionic.app.css" rel="stylesheet">
--->
-```
-
-## Updating Ionic
-
-To update to a new version of Ionic, open bower.json and change the version listed there.
-
-For example, to update from version `1.0.0-beta.4` to `1.0.0-beta.5`, open bower.json and change this:
+*Edit the www/index.html file, adding a link to an additional CSS file, overrides.css in this case:*
 
 ```
-"ionic": "driftyco/ionic-bower#1.0.0-beta.4"
+<link rel="stylesheet" type="text/css" href="css/overrides.css" />
 ```
+Optionally create an empty www/css/overrides.css file, which would apply for all non-Android builds, preventing a missing-file error.
+Create a css subdirectory within merges/android, then add a corresponding overrides.css file. Specify CSS that overrides the 12-point default font size specified within www/css/index.css, for example:
 
-To this:
-
-```
-"ionic": "driftyco/ionic-bower#1.0.0-beta.5"
-```
-
-After saving the update to bower.json file, run `gulp install`.
-
-Alternatively, install bower globally with `npm install -g bower` and run `bower install`.
-
-#### Using the Nightly Builds of Ionic
-
-If you feel daring and want use the bleeding edge 'Nightly' version of Ionic, change the version of Ionic in your bower.json to this:
-
-```
-"ionic": "driftyco/ionic-bower#master"
-```
-
-Warning: the nightly version is not stable.
-
-
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
-
+body { font-size:14px; }
+When you rebuild the project, the Android version features the custom font size, while others remain unchanged.
