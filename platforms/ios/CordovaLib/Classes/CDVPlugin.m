@@ -23,6 +23,11 @@ NSString* const CDVPageDidLoadNotification = @"CDVPageDidLoadNotification";
 NSString* const CDVPluginHandleOpenURLNotification = @"CDVPluginHandleOpenURLNotification";
 NSString* const CDVPluginResetNotification = @"CDVPluginResetNotification";
 NSString* const CDVLocalNotification = @"CDVLocalNotification";
+<<<<<<< HEAD
+=======
+NSString* const CDVRemoteNotification = @"CDVRemoteNotification";
+NSString* const CDVRemoteNotificationError = @"CDVRemoteNotificationError";
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
 
 @interface CDVPlugin ()
 

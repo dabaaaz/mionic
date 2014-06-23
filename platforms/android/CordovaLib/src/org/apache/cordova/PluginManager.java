@@ -236,22 +236,42 @@ public class PluginManager {
             app.sendPluginResult(cr, callbackId);
             return;
         }
+<<<<<<< HEAD
         try {
             CallbackContext callbackContext = new CallbackContext(callbackId, app);
             long pluginStartTime = System.currentTimeMillis();
             boolean wasValidAction = plugin.execute(action, rawArgs, callbackContext);
             long duration = System.currentTimeMillis() - pluginStartTime;
             
+=======
+        CallbackContext callbackContext = new CallbackContext(callbackId, app);
+        try {
+            long pluginStartTime = System.currentTimeMillis();
+            boolean wasValidAction = plugin.execute(action, rawArgs, callbackContext);
+            long duration = System.currentTimeMillis() - pluginStartTime;
+
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
             if (duration > SLOW_EXEC_WARNING_THRESHOLD) {
                 Log.w(TAG, "THREAD WARNING: exec() call to " + service + "." + action + " blocked the main thread for " + duration + "ms. Plugin should use CordovaInterface.getThreadPool().");
             }
             if (!wasValidAction) {
                 PluginResult cr = new PluginResult(PluginResult.Status.INVALID_ACTION);
+<<<<<<< HEAD
                 app.sendPluginResult(cr, callbackId);
             }
         } catch (JSONException e) {
             PluginResult cr = new PluginResult(PluginResult.Status.JSON_EXCEPTION);
             app.sendPluginResult(cr, callbackId);
+=======
+                callbackContext.sendPluginResult(cr);
+            }
+        } catch (JSONException e) {
+            PluginResult cr = new PluginResult(PluginResult.Status.JSON_EXCEPTION);
+            callbackContext.sendPluginResult(cr);
+        } catch (Exception e) {
+            Log.e(TAG, "Uncaught exception from plugin", e);
+            callbackContext.error(e.getMessage());
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         }
     }
 

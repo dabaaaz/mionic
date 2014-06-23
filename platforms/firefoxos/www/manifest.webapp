@@ -1,1 +1,22 @@
+<<<<<<< HEAD
 {"launch_path":"/index.html","installs_allowed_from":["*"],"version":"0.0.1","name":"HelloCordova","pkgName":"com.ionicframework.starter"}
+=======
+{
+    "launch_path": "/index.html",
+    "installs_allowed_from": [
+        "*"
+    ],
+    "version": "0.0.1",
+    "name": "Bank in the pocket",
+    "pkgName": "com.ionicframework.starter",
+    "description": "An account app from ONZEDIX",
+    "developer": {
+        "name": "1110 Team",
+        "url": "http://onzedix.fr/"
+    },
+    "icons": {
+        "57": "/icon-57.png",
+        "60": "/icon-60.png"
+    }
+}
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2

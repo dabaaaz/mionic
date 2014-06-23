@@ -194,7 +194,11 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
     SEL normalSelector = NSSelectorFromString(methodName);
     if ([obj respondsToSelector:normalSelector]) {
         // [obj performSelector:normalSelector withObject:command];
+<<<<<<< HEAD
         objc_msgSend(obj, normalSelector, command);
+=======
+        ((void (*)(id, SEL, id))objc_msgSend)(obj, normalSelector, command);
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     } else {
         // There's no method to call, so throw an error.
         NSLog(@"ERROR: Method '%@' not defined in Plugin '%@'", methodName, command.className);

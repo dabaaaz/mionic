@@ -44,6 +44,15 @@ NSString* const kCDVDefaultSchemeName = @"cdv-default-scheme";
 
     if (allowWildcards) {
         regex = [regex stringByReplacingOccurrencesOfString:@"\\*" withString:@".*"];
+<<<<<<< HEAD
+=======
+        /* [NSURL path] has the peculiarity that a trailing slash at the end of a path
+         * will be omitted. This regex tweak compensates for that.
+         */
+        if ([regex hasSuffix:@"\\/.*"]) {
+            regex = [NSString stringWithFormat:@"%@(\\/.*)?", [regex substringToIndex:([regex length]-4)]];
+        }
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     }
     return [NSString stringWithFormat:@"%@$", regex];
 }
@@ -55,14 +64,24 @@ NSString* const kCDVDefaultSchemeName = @"cdv-default-scheme";
         if ((scheme == nil) || [scheme isEqualToString:@"*"]) {
             _scheme = nil;
         } else {
+<<<<<<< HEAD
             _scheme = [NSRegularExpression regularExpressionWithPattern:[CDVWhitelistPattern regexFromPattern:scheme allowWildcards:NO] options:0 error:nil];
+=======
+            _scheme = [NSRegularExpression regularExpressionWithPattern:[CDVWhitelistPattern regexFromPattern:scheme allowWildcards:NO] options:NSRegularExpressionCaseInsensitive error:nil];
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         }
         if ([host isEqualToString:@"*"]) {
             _host = nil;
         } else if ([host hasPrefix:@"*."]) {
+<<<<<<< HEAD
             _host = [NSRegularExpression regularExpressionWithPattern:[NSString stringWithFormat:@"([a-z0-9.-]*\\.)?%@", [CDVWhitelistPattern regexFromPattern:[host substringFromIndex:2] allowWildcards:false]] options:0 error:nil];
         } else {
             _host = [NSRegularExpression regularExpressionWithPattern:[CDVWhitelistPattern regexFromPattern:host allowWildcards:NO] options:0 error:nil];
+=======
+            _host = [NSRegularExpression regularExpressionWithPattern:[NSString stringWithFormat:@"([a-z0-9.-]*\\.)?%@", [CDVWhitelistPattern regexFromPattern:[host substringFromIndex:2] allowWildcards:false]] options:NSRegularExpressionCaseInsensitive error:nil];
+        } else {
+            _host = [NSRegularExpression regularExpressionWithPattern:[CDVWhitelistPattern regexFromPattern:host allowWildcards:NO] options:NSRegularExpressionCaseInsensitive error:nil];
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         }
         if ((port == nil) || [port isEqualToString:@"*"]) {
             _port = nil;
@@ -162,7 +181,11 @@ NSString* const kCDVDefaultSchemeName = @"cdv-default-scheme";
         self.whitelist = nil;
         self.permittedSchemes = nil;
     } else { // specific access
+<<<<<<< HEAD
         NSRegularExpression* parts = [NSRegularExpression regularExpressionWithPattern:@"^((\\*|[a-z-]+)://)?(((\\*\\.)?[^*/:]+)|\\*)?(:(\\d+))?(/.*)?" options:0 error:nil];
+=======
+        NSRegularExpression* parts = [NSRegularExpression regularExpressionWithPattern:@"^((\\*|[A-Za-z-]+)://)?(((\\*\\.)?[^*/:]+)|\\*)?(:(\\d+))?(/.*)?" options:0 error:nil];
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         NSTextCheckingResult* m = [parts firstMatchInString:origin options:NSMatchingAnchored range:NSMakeRange(0, [origin length])];
         if (m != nil) {
             NSRange r;
@@ -239,7 +262,11 @@ NSString* const kCDVDefaultSchemeName = @"cdv-default-scheme";
     }
 
     // Shortcut rejection: Check that the scheme is supported
+<<<<<<< HEAD
     NSString* scheme = [url scheme];
+=======
+    NSString* scheme = [[url scheme] lowercaseString];
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
     if (![self schemeIsAllowed:scheme]) {
         if (logFailure) {
             NSLog(@"%@", [self errorStringForURL:url]);

@@ -55,14 +55,24 @@ public class Whitelist {
                 if (scheme == null || "*".equals(scheme)) {
                     this.scheme = null;
                 } else {
+<<<<<<< HEAD
                     this.scheme = Pattern.compile(regexFromPattern(scheme, false));
+=======
+                    this.scheme = Pattern.compile(regexFromPattern(scheme, false), Pattern.CASE_INSENSITIVE);
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                 }
                 if ("*".equals(host)) {
                     this.host = null;
                 } else if (host.startsWith("*.")) {
+<<<<<<< HEAD
                     this.host = Pattern.compile("([a-z0-9.-]*\\.)?" + regexFromPattern(host.substring(2), false));
                 } else {
                     this.host = Pattern.compile(regexFromPattern(host, false));
+=======
+                    this.host = Pattern.compile("([a-z0-9.-]*\\.)?" + regexFromPattern(host.substring(2), false), Pattern.CASE_INSENSITIVE);
+                } else {
+                    this.host = Pattern.compile(regexFromPattern(host, false), Pattern.CASE_INSENSITIVE);
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                 }
                 if (port == null || "*".equals(port)) {
                     this.port = null;
@@ -120,7 +130,11 @@ public class Whitelist {
                     whiteList = null;
                 }
                 else { // specific access
+<<<<<<< HEAD
                     Pattern parts = Pattern.compile("^((\\*|[a-z-]+)://)?(\\*|((\\*\\.)?[^*/:]+))?(:(\\d+))?(/.*)?");
+=======
+                    Pattern parts = Pattern.compile("^((\\*|[A-Za-z-]+)://)?(\\*|((\\*\\.)?[^*/:]+))?(:(\\d+))?(/.*)?");
+>>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
                     Matcher m = parts.matcher(origin);
                     if (m.matches()) {
                         String scheme = m.group(2);
