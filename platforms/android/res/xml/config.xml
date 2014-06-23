@@ -4,6 +4,8 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="2000" />
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>

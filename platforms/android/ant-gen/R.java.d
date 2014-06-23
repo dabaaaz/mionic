@@ -1,14 +1,22 @@
 /Users/davidoski/AngularJS/bitp/platforms/android/ant-gen/com/ionicframework/starter/R.java \
  : /Users/davidoski/AngularJS/bitp/platforms/android/res/drawable/icon.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-hdpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-hdpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-ldpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-ldpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-mdpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-mdpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-xhdpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/res/drawable-xhdpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/res/values/strings.xml \
 /Users/davidoski/AngularJS/bitp/platforms/android/res/xml/config.xml \
 /Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable/icon.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-hdpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-hdpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-ldpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-ldpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-mdpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-mdpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
+/Users/davidoski/AngularJS/bitp/platforms/android/ant-build/res/drawable-xhdpi/splash.png \
 /Users/davidoski/AngularJS/bitp/platforms/android/ant-build/AndroidManifest.xml \
