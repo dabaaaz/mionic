@@ -3,15 +3,19 @@ Bank in the pocket
 
 Projet d'application commerciale permettant la tenue simplifiées de comptes bancaires.
 
+# Process de travail
+Pour chaque fonction identifiée pour la production d'une version suivre le process suivant :
+- **UI** : ne créer que la partie interface, utiliser des données brutes statiques, appels de fonctions mais sans algorithmes et juste des retours de valeurs statiques. *Tests uniquement sur l'interface.*
+- **MOTEUR** : l'interface est validée, utiliser des données brutes statiques, les appels de fonctions font maintenant appels à des classes et de vrais algorithmes. *Tests uniquement sur les classes et fonctions.*
+- **DATAS** : l'interface est validée, les algorithmes aussi, les données brutes statiques sont remplacées au profits de données issues d'une base ou d'un fichier. *Tests uniquement sur la gestion des données.*
 
-# Bug firefox navigation routes
+# Firefox OS
 https://developer.mozilla.org/en-US/Apps/Tools_and_frameworks/common_libraries_and_frameworks
 
 Mise à jour FXOS : http://forum.xda-developers.com/showthread.php?t=2628130 + elsimpicuitico.wordpress.com/firefoxos/
 
 Helper how to run : https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager
 
-# Firefox OS
 https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
 
 */!\ Penser à ne pas laisser le livereload lors de l’exécution du simulateur Android /!\*
@@ -20,7 +24,9 @@ https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
 http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs
 
 Création des splashes Android (9-patches) : http://romannurik.github.io/AndroidAssetStudio/nine-patches.html
-Les icônes sont dans des et les splashscreens dans les dossiers
+Les icônes sont dans le dossier res et les splashscreens dans les dossiers de chaque plateforme.
+
+Plugins basiques :
 
 ```
 org.apache.cordova.statusbar
