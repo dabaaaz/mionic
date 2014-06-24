@@ -195,6 +195,192 @@ module.exports = function(grunt) {
             }
         },
 
+        // icons & splash screens generator
+        // don't forget to get res/bigicon.png (>= 1024*1024) & res/bigsplash.png (>= 640*1136)
+        responsive_images: {
+            android_icons: {
+                options: {
+                    sizes: [{
+                      width: 36,
+                      name: 'ldpi'
+                    },{
+                      width: 48,
+                      name: 'mdpi'
+                    },{
+                      width: 72,
+                      name: 'hdpi'
+                    },{
+                      width: 96,
+                      name: 'xhdpi'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    src: ['bigicon.png'],
+                    cwd: 'res/',
+                    dest: 'res/android/icons'
+                }]
+            },
+            android_splashscreens: {
+                options: {
+                    sizes: [{
+                      width: 320,
+                      height: 426,
+                      aspectRatio: false,
+                      name: 'ldpi'
+                    },{
+                      width: 320,
+                      height: 470,
+                      aspectRatio: false,
+                      name: 'mdpi'
+                    },{
+                      width: 480,
+                      height: 640,
+                      aspectRatio: false,
+                      name: 'hdpi'
+                    },{
+                      width: 720,
+                      height: 960,
+                      aspectRatio: false,
+                      name: 'xhdpi'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    src: ['bigsplash.png'],
+                    cwd: 'res/',
+                    dest: 'res/android/splashs'
+                }]
+            },
+            firefoxos_icons: {
+              options: {
+                sizes: [{
+                  width: 30,
+                },{
+                  width: 60,
+                },{
+                  width: 128
+                }]
+              },
+              files: [{
+                expand: true,
+                src: ['bigicon.png'],
+                cwd: 'res/',
+                dest: 'res/firefoxos/icons'
+              }]
+            },
+            firefoxos_splashscreens: {
+              options: {
+                sizes: [{
+                  width: 320,
+                  aspectRatio: false,
+                  height: 480
+                }/*,{
+                  width: 500,
+                  aspectRatio: false,
+                  height: 800
+                }*/]
+              },
+              files: [{
+                expand: true,
+                src: ['bigsplash.png'],
+                cwd: 'res/',
+                dest: 'res/firefoxos/splashs'
+              }]
+            },
+            ios_icons: {
+              options: {
+                sizes: [{
+                  width: 29,
+                  name: 'small'
+                },{
+                  width: 58,
+                  name: 'small',
+                  suffix: "@x2"
+                },{
+                  width: 40,
+                  name: '40'
+                },{
+                  width: 80,
+                  name: '40',
+                  suffix: "@x2"
+                },{
+                  width: 50,
+                  name: '50'
+                },{
+                  width: 100,
+                  name: '50',
+                  suffix: "@x2"
+                },{
+                  width: 57,
+                  name: 'basic'
+                },{
+                  width: 114,
+                  name: 'basic',
+                  suffix: "@x2"
+                },{
+                  width: 60,
+                  name: '60'
+                },{
+                  width: 120,
+                  name: '60',
+                  suffix: "@x2"
+                },{
+                  width: 72,
+                  name: '72'
+                },{
+                  width: 144,
+                  name: '72',
+                  suffix: "@x2"
+                },{
+                  width: 76,
+                  name: '76'
+                },{
+                  width: 152,
+                  name: '76',
+                  suffix: "@x2"
+                }]
+              },
+              files: [{
+                expand: true,
+                src: ['bigicon.png'],
+                cwd: 'res/',
+                dest: 'res/ios/icons'
+              }]
+            },
+            ios_splashscreens: {
+                options: {
+                    sizes: [{
+                      width: 320,
+                      height: 480,
+                      aspectRatio: false,
+                      name: 'default'
+                    },{
+                      width: 640,
+                      height: 960,
+                      aspectRatio: false,
+                      name: 'default@2x'
+                    },{
+                      width: 640,
+                      height: 1136,
+                      aspectRatio: false,
+                      name: 'default-568h@2x'
+                    },{
+                      width: 1280,
+                      height: 2272,
+                      aspectRatio: false,
+                      name: 'portrait@2x'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    src: ['bigsplash.png'],
+                    cwd: 'res/',
+                    dest: 'res/ios/splashs'
+                }]
+            },
+        },
+
 /*main: {
     files: [
       // includes files within path
