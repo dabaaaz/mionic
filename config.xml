@@ -1,119 +1,17 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Bank in the pocket</name>
-    <description>
-        An account app from ONZEDIX
-    </description>
+<widget id="com.ionicframework.starter" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Bank in the Pocket</name>
+    <description></description>
     <author email="pierre@onzedix.fr" href="http://onzedix.fr/">
         1110 Team
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="AllowInlineMediaPlayback" value="false" />
-    <preference name="BackupWebStorage" value="none" />
-    <preference name="DisallowOverscroll" value="false" />
-    <preference name="EnableViewportScale" value="false" />
     <preference name="fullscreen" value="true" />
-    <preference name="GapBetweenPages" value="0" />
-    <preference name="HideKeyboardFormAccessoryBar" value="false" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-    <preference name="KeyboardShrinksView" value="false" />
-    <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="Orientation" value="portrait" />
-    <preference name="PageLength" value="0" />
-    <preference name="PaginationBreakingMode" value="page" />
-    <preference name="PaginationMode" value="unpaginated" />
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
-    <preference name="SuppressesIncrementalRendering" value="false" />
-    <preference name="TopActivityIndicator" value="gray" />
-    <preference name="UIWebViewBounce" value="false" />
     <preference name="webviewbounce" value="false" />
-
-    <feature name="LocalStorage">
-        <param name="ios-package" value="CDVLocalStorage" />
-    </feature>
-    <feature name="Device">
-        <param name="ios-package" value="CDVDevice" />
-    </feature>
-    <feature name="File">
-        <param name="ios-package" value="CDVFile" />
-    </feature>
-    <feature name="EmailComposer">
-        <param name="ios-package" value="APPEmailComposer" />
-    </feature>
-    <feature name="CallComposer">
-        <param name="ios-package" value="BFCallComposer" />
-    </feature>
-    <feature name="SharePlugin">
-        <param name="ios-package" value="BFSharePlugin" />
-    </feature>
-    <feature name="PushRequest">
-        <param name="ios-package" value="BFPushServicePlugin" />
-    </feature>
-    <feature name="FileTransfer">
-        <param name="ios-package" value="CDVFileTransfer" />
-    </feature>
-    <feature name="Notification">
-        <param name="ios-package" value="CDVNotification" />
-    </feature>
-    <feature name="Vibration">
-        <param name="ios-package" value="CDVVibration" />
-    </feature>
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
     <feature name="StatusBar">
-        <param name="ios-package" onload="true" value="CDVStatusBar" />
+      <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
-    <feature name="SplashScreen">
-        <param name="ios-package" value="CDVSplashScreen" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="Console">
-        <param name="ios-package" value="CDVLogger" />
-    </feature>
-    <feature name="InAppBrowser ">
-        <param name="ios-package" value="CDVInAppBrowser " />
-    </feature>
-
-    <icon src="res/ios/icon.png" platform="ios" width="57" height="57" density="mdpi" />
-    <platform name="amazon-fireos">
-        <icon src="res/android/ldpi.png" density="ldpi" />
-        <icon src="res/android/mdpi.png" density="mdpi" />
-        <icon src="res/android/hdpi.png" density="hdpi" />
-        <icon src="res/android/xhdpi.png" density="xhdpi" />
-    </platform>
-    <platform name="android">
-        <icon src="res/android/ldpi.png" density="ldpi" />
-        <icon src="res/android/mdpi.png" density="mdpi" />
-        <icon src="res/android/hdpi.png" density="hdpi" />
-        <icon src="res/android/xhdpi.png" density="xhdpi" />
-    </platform>
-    <platform name="firefoxos">
-        <icon src="res/ff/logo.png" width="60" height="60" />
-    </platform>
-    <platform name="ios">
-        <!-- iOS 7.0+ -->
-        <!-- iPhone / iPod Touch  -->
-        <icon src="res/ios/icon-60.png" width="60" height="60" />
-        <icon src="res/ios/icon-60@2x.png" width="120" height="120" />
-        <!-- iPad -->
-        <icon src="res/ios/icon-76.png" width="76" height="76" />
-        <icon src="res/ios/icon-76@2x.png" width="152" height="152" />
-        <!-- iOS 6.1 -->
-        <!-- Spotlight Icon -->
-        <icon src="res/ios/icon-40.png" width="40" height="40" />
-        <icon src="res/ios/icon-40@2x.png" width="80" height="80" />
-        <!-- iPhone / iPod Touch -->
-        <icon src="res/ios/icon.png" width="57" height="57" />
-        <icon src="res/ios/icon@2x.png" width="114" height="114" />
-        <!-- iPad -->
-        <icon src="res/ios/icon-72.png" width="72" height="72" />
-        <icon src="res/ios/icon-72@2x.png" width="144" height="144" />
-        <!-- iPhone Spotlight and Settings Icon -->
-        <icon src="res/ios/icon-small.png" width="29" height="29" />
-        <icon src="res/ios/icon-small@2x.png" width="58" height="58" />
-        <!-- iPad Spotlight and Settings Icon -->
-        <icon src="res/ios/icon-50.png" width="50" height="50" />
-        <icon src="res/ios/icon-50@2x.png" width="100" height="100" />
-    </platform>
 </widget>

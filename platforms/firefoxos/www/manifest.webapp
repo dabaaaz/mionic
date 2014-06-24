@@ -1,18 +1,15 @@
 {
+    "installs_allowed_from": ["*"],
+    "version": "2.0.1",
+    "name": "bankinthepocket",
+    "description": "Bank in the Pocket",
     "launch_path": "/index.html",
-    "installs_allowed_from": [
-        "*"
-    ],
-    "version": "0.0.1",
-    "name": "Bank in the pocket",
     "pkgName": "com.ionicframework.starter",
-    "description": "An account app from ONZEDIX",
     "developer": {
-        "name": "1110 Team",
-        "url": "http://onzedix.fr/"
+        "name": "Studio 1110",
+        "url": "http://onzedix.fr"
     },
     "icons": {
-        "57": "/icon-57.png",
-        "60": "/icon-60.png"
+        "128": "img/128.png"
     }
 }
