@@ -13,9 +13,13 @@ public final class R {
     public static final class drawable {
         public static final int icon=0x7f020000;
 <<<<<<< HEAD
+        public static final int splash=0x7f020001;
+=======
+<<<<<<< HEAD
 =======
         public static final int screen=0x7f020001;
 >>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
+>>>>>>> 4be2fe1794d9dc67bf84be15967563153e7ed0bd
     }
     public static final class string {
         public static final int app_name=0x7f040000;
