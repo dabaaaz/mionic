@@ -1,0 +1,8 @@
+{
+    "installs_allowed_from": ["*"],
+    "version": "2.0.1",
+    "name": "bankinthepocket",
+    "description": "Bank in the Pocket",
+    "launch_path": "/index.html",
+    "pkgName": "com.ionicframework.starter"
+}
