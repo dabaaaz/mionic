@@ -11,21 +11,24 @@ Pour chaque fonction identifiée pour la production d'une version suivre le proc
 
 Tous les fichiers sources destinés à être transformés ou manipulés doivent se trouver dans le dossier _src_ et être manipulé par Grunt via le fichier *Gruntfile.js*
 
-**Les processus à automatiser sont les suivants :**
-- compilation des sources SASS vers le dossier CSS, chaque fichier inclus dans style.scss est _[nomdevue].scss
-- vérification des CSS
-- optimisation des sources .GIF, .JPG, .PNG vers le dossier IMG
-- création des icones à partir du fichier icone.png vers le dossier RES
-- incrémentation du numéro de correction : majeur.fonction.correction
-- incrémentation du numéro de fonction
-- concaténation des fichiers ctrl_[nomdevue].js en controllers.js
-- concaténation des fichiers views_[nomdevue].js en view.js
-- concaténation des fichiers services_[nomdevue].js en services.js
-- vérification des JS
-- archive des sources en [nom].[version].zip
-- publication des executable vers 1110.fr/[nom]
-- lancement des tests automatiques
-- compilation simultanée pour iOS, Android et Firefoxos en lancement des émulseurs avec ces nouvelles versions
+**Les tâches GRUNT :**
+Pour initialiser le nouveau projet, après avoir changé le numéro de version dans package.json et autres paramètres :
+```
+	grunt install
+```
+
+Après un install il est possible de faire un *grunt run*
+
+Pour faire un build (après avoir changé le numéro de version dans package.json) :
+```
+	grunt compile
+```
+
+Pour produire les compilations pour les plateformes après un build et les lancer en émulateurs (uniquement iOS et android) :
+```
+	grunt build
+	grunt run
+```
 
 # Firefox OS
 https://developer.mozilla.org/en-US/Apps/Tools_and_frameworks/common_libraries_and_frameworks
@@ -45,7 +48,7 @@ Création des splashes Android (9-patches) : http://romannurik.github.io/Android
 Les icônes sont dans le dossier res et les splashscreens dans les dossiers de chaque plateforme.
 
 ```
- <icon src="res/ios/icon.png" platform="ios" width="57" height="57" density="mdpi" />
+	<icon src="res/ios/icon.png" platform="ios" width="57" height="57" density="mdpi" />
     <platform name="amazon-fireos">
         <icon src="res/android/ldpi.png" density="ldpi" />
         <icon src="res/android/mdpi.png" density="mdpi" />
@@ -91,10 +94,10 @@ Les icônes sont dans le dossier res et les splashscreens dans les dossiers de c
 Plugins basiques :
 
 ```
-org.apache.cordova.statusbar
-org.apache.cordova.dialogs
-org.apache.cordova.files
-org.apache.cordova.splashscreen
+	org.apache.cordova.statusbar
+	org.apache.cordova.dialogs
+	org.apache.cordova.files
+	org.apache.cordova.splashscreen
 ```
 
 # Simulateurs

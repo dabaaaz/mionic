@@ -17,7 +17,7 @@
  under the License.
  */
 //
-// Prefix header for all source files of the 'Bank in the pocket' target in the 'Bank in the pocket' project
+// Prefix header for all source files of the 'Bank in the Pocket' target in the 'Bank in the Pocket' project
 //
 
 #ifdef __OBJC__

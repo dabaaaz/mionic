@@ -1,133 +1,217 @@
+//- création des icones à partir du fichier icone.png vers le dossier RES
+//- archive des sources en [nom].[version].zip
+//- publication des executable vers 1110.fr/[nom]
+//- lancement des tests automatiques
 module.exports = function(grunt) {
+    grunt.initConfig({
 
-	require('load-grunt-tasks')(grunt);
 
-	grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-        /* MISE À JOUR DES PACKAGES CONTENUS DANS PACKAGE.JSON */
-        devUpdate: {
-            options: {
-                updateType: 'report', //just report outdated packages
-                reportUpdated: false, //don't report already updated packages
-                semver: true, //use package.json semver rules when updating
-                packages: { //what packages to check
-                    devDependencies: true, //only devDependencies
-                    dependencies: false
-                },
-                packageJson: null //find package.json automatically
+
+        /* !WATCH */
+        watch: {
+            scss: {
+                files: ['src/scss/*'],
+                tasks: ['sass:watch', 'csslint'],
+                options: {
+                    livereload: true
+                }
+            },
+            html: {
+                files: ['src/index.html','src/templates/*.html'],
+                tasks: ['copy:build'],
+                options: {
+                    livereload: true
+                }
+            },
+            img: {
+                files: ['src/img/**/*.{png,jpg,gif}'],
+                tasks: ['imagemin:watch'],
+                options: {
+                    livereload: true
+                }
+            },
+            js: {
+                files: ['src/*.js'],
+                tasks: ['jshint', 'uglify:watch'],
+                options: {
+                    livereload: true
+                }
             }
         },
 
-		/* AUTOMATISATION */
-		watch: {
-    		//all: {
-    		//  options: { livereload: true, spawn: false },
-    		//  files: ['source/**/*']
-    		//},
-    		html: {
-    		    files: ['src/**/*.html'],
-    		    tasks: ['copy'],
-    		    options: {
-    		        livereload: true
-    		    }
-    		},
-    		img: {
-    		    files: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif'],
-    		    tasks: ['imagemin:dev'],
-    		    options: {
-    		        livereload: true
-    		    }
-    		},
-    		js: {
-    		    files: ['src/**/*.js'],
-    		    tasks: ['jshint'/*, 'concat.dev'*/, 'uglify:dev'],
-    		    options: {
-    		        livereload: true
-    		    }
-    		},
-    		scss: {
-    		    files: ['src/**/*.scss'],
-    		    tasks: ['sass:dev'/*, 'csslint'*/],
-    		    options: {
-    		        livereload: true
-    		    }
-    		}
-		},
 
-		karma: {
-			unit: {
-				configFile: 'karma.conf.js',
-				background: true
-			}
-		},
+        /* !EXEC */
+        exec: {
+            clean: {
+                command: 'sudo chmod -R a+rw *',
+                stdout: true,
+                stderr: true
+            },
+            init: {
+                command: 'sudo npm update;bower install ionic#1 --allow-root;sudo ionic platform add ios;sudo ionic platform add android;sudo ionic platform add firefoxos;',
+                stdout: true,
+                stderr: true
+            },
+            build: {
+                command: 'sudo chmod -R a+rw *',
+                stdout: true,
+                stderr: true
+            },
+            buildios: {
+                command: 'sudo ionic build ios',
+                stdout: true,
+                stderr: true
+            },
+            buildandroid: {
+                command: 'sudo ionic build android',
+                stdout: true,
+                stderr: true
+            },
+            buildff: {
+                command: 'sudo ionic build firefoxos',
+                stdout: true,
+                stderr: true
+            },
+            runios: {
+                command: 'sudo ionic emulate ios',
+                stdout: false,
+                stderr: false
+            },
+            runandroid: {
+                command: 'android -avd ionic;sudo ionic emulate android',
+                stdout: false,
+                stderr: false
+            }
+        },
 
-		/* TRANSFORMATION DU CODE */
-		sass: {
-			dev: {
-                options: {                       // Target options
+
+        /* !SASS */
+        sass: {
+            watch: {
+                options: {
                     style: 'expanded'
                 },
-                    files: {                         // Dictionary of files
-                    'www/css/style.css': 'src/scss/style.scss'//,       // 'destination': 'source'
-                    //'widgets.css': 'widgets.scss'
+                files: {
+                    'www/css/style.css': 'src/scss/style.scss',
+                    'merges/ios/css/override.css': 'src/scss/ios.scss',
+                    'merges/android/css/override.css': 'src/scss/android.scss',
+                    'merges/firefoxos/css/override.css': 'src/scss/ff.scss',
                 }
-			},
-			build: {
-			    options: {
-			        style: 'compressed',
-			        noCache: true,
-			        banner: '/*! <%= pkg.appname %> version <%= pkg.appversion %> */\n',
-			    },
-			    files: {
-			        'src/<%= pkg.appname %>.scss': ['build/css/<%= pkg.appname %>.css']
-			    }
-			}
-		},
-
-		/* VERIFICATION DU CODE */
-		jshint: {
-			src: ['src/**/*.js']
-		},
-		csslint: {
-            dev: {
-                options: {
-                    import: 2
-                },
-                src: ['www/css/style.css']
             },
             build: {
                 options: {
-                    import: 2
+                    style: 'compressed',
+                    noCache: true,
                 },
-                src: ['build/css/style.css']
+                files: {
+                    'www/css/style.css': 'src/scss/style.scss',
+                    'merges/ios/css/override.css': 'src/scss/ios.scss',
+                    'merges/android/css/override.css': 'src/scss/android.scss',
+                    'merges/firefoxos/css/override.css': 'src/scss/ff.scss',
+                }
+            },
+            start: {
+                options: {
+                    style: 'compressed',
+                    noCache: true,
+                },
+                files: {
+                    'www/css/style.css': 'src/scss/style.scss',
+                    'merges/ios/css/override.css': 'src/scss/ios.scss',
+                    'merges/android/css/override.css': 'src/scss/android.scss',
+                    'merges/firefoxos/css/override.css': 'src/scss/ff.scss',
+                }
             }
-		},
+        },
 
-      	/* MISE EN FORME DES FICHIERS */
-        //concat: {
-        //    options: {
-        //        stripBanners: true,
-        //        banner: '/*! <%= pkg.appname %> version <%= pkg.appversion %> concatened */\n',
-        //    },
-        //    dev: {
-        //        src: ['src/**/*.js'],
-        //        dest: 'dev/js/<%= pkg.appname %>.js'
-        //    },
-        //    build: {
-        //        src: ['src/**/*.js'],
-        //        dest: 'build/js/<%= pkg.appname %>.js'
-        //    }
-        //},
+
+        /* !CSS LINT */
+        csslint: {
+            options: {
+                import: 2
+            },
+            src: ['www/css/style.css','merges/ios/css/override.css','merges/android/css/override.css','merges/firefoxos/css/override.css']
+        },
+
+
+        /* !JS LINT */
+        jshint: {
+        	src: ['src/*.js']
+        },
+
+
+        /* !REPLACE */
+        replace: {
+            start1: {
+                src: ['1/index.html'],
+                dest: 'src/index.html',
+                replacements: [{
+                    from: 'Starter App',
+                    to: '<%= pkg.description %>'
+                },{
+                    from: 'starter',
+                    to: '<%= pkg.name %>'
+                }]
+            },
+            start2: {
+                src: ['1/js/*.js'],
+                dest : ['src/js/'],
+                replacements: [{
+                    from: 'starter',
+                    to: '<%= pkg.name %>'
+                }]
+            },
+            start3: {
+                src: ['1/config.xml'],
+                dest: ['config.xml'],
+                replacements: [{
+                    from: /version="([^"]+)"/g,
+                    to: 'version="<%= pkg.version %>"'
+                },{
+                    from: /<name>(.*)<\/name>/g,
+                    to: '<name><%= pkg.description %></name>'
+                },{
+                    from: /<description>(.*)<\/description>/g,
+                    to: '<description></description>'
+                }]
+            },
+            start4: {
+                src: ['1/manifest.webapp'],
+                dest: ['merges/firefoxos/manifest.webapp'],
+                replacements: [{
+                    from: /"version": "([^"]+)"/g,
+                    to: '"version": "<%= pkg.version %>"'
+                },{
+                    from: /"name": "([^"]+)"/g,
+                    to: '"name": "<%= pkg.name %>"'
+                },{
+                    from: /"description": "([^"]+)"/g,
+                    to: '"description": "<%= pkg.description %>"'
+                }]
+            },
+            version: {
+                src: ['config.xml'],
+                overwrite: true,
+                replacements: [{
+                    from: /version="([^"]+)"/g,
+                    to: 'version="<%= pkg.version %>"'
+                }]
+            }
+        },
+
+
+        /* !UGLIFY */
         uglify: {
-            dev: {
+            watch: {
                 options: {
                     mangle: false,
                     compress: false,
                     beautify: true
                 },
                 files: {
-                    //'www/js/output.min.js': ['src/**/*.js']
-                    'www/js/output.min.js': ['src/js/app.js', 'src/js/controllers.js', 'src/js/services.js', 'src/js/directives.js', 'src/js/calculs.js']
+                    'www/js/app.min.js': ['src/js/app.js', 'src/js/controllers.js', 'src/js/services.js', 'src/js/directives.js']
                 }
             },
             build: {
@@ -137,31 +221,18 @@ module.exports = function(grunt) {
                     beautify: false
                 },
                 files: {
-                    //'www/js/output.min.js': ['src/**/*.js']
-                    'www/js/output.min.js': ['src/js/app.js', 'src/js/controllers.js', 'src/js/services.js', 'src/js/directives.js', 'src/js/calculs.js']
+                    'www/js/app.min.js': ['src/js/app.js', 'src/js/controllers.js', 'src/js/services.js', 'src/js/directives.js']
                 }
             }
         },
-        /*uglify: {
-            options: {
-              mangle: false
-            },
-            my_target: {
-              files: {
-                'dest/output.min.js': ['src/input.js']
-              }
-            }
-        },*/
-        autoprefixer: {
-            dev: {
-                src: 'dev/css/<%= pkg.appname %>.css',
-            },
-            build: {
-                src: 'build/css/<%= pkg.appname %>.css',
-            }
-        },
+
+
+        /* !IMAGE MIN */
         imagemin: {
-            dev: {
+            watch: {
+                options: {                       // Target options
+                    optimizationLevel: 0,
+                },
                 files: [{
                     expand: true,
                     cwd: 'src/img/',
@@ -170,28 +241,79 @@ module.exports = function(grunt) {
                 }]
             },
             build: {
-                dynamic: {
-                  files: [{
+                options: {                       // Target options
+                    optimizationLevel: 7,
+                },
+                files: [{
                     expand: true,
-                    cwd: '/src/img/',
+                    cwd: 'src/img/',
                     src: ['*.{png,jpg,gif}'],
-                    dest: '/www/img/'
-                  }]
-                }
+                    dest: 'www/img/'
+                }]
             }
         },
+
+
+        /* !COPY */
         copy: {
-            dev : {
-                files: [
-                     {expand: true, src: ['src/*.html'], flatten: true, dest: 'www/'},
-                     {expand: true, src: ['src/templates/*.html'], flatten: true, dest: 'www/templates/'}
-                ]
+            start: {
+                files: [{
+                    expand: true,
+                    src: ['src/*.html'],
+                    flatten: true,
+                    dest: 'www/'
+                }, {
+                    expand: true,
+                    src: ['src/templates/*.html'],
+                    flatten: true,
+                    dest: 'www/templates/'
+                }]
+            },
+            init: {
+                files: [{
+                    expand: true,
+                    cwd: '1/img',
+                    src: ['*'],
+                    dest: 'src/img/'
+                }, {
+                    expand: true,
+                    src: ['1/templates/*'],
+                    flatten: true,
+                    dest: 'src/templates/'
+                }, {
+                    expand: true,
+                    src: ['1/scss/*'],
+                    flatten: true,
+                    dest: 'src/scss/'
+                }, {
+                    expand: true,
+                    cwd: 'bower_components/ionic/release/',
+                    src: ['**/*'],
+                    dest: '1/lib/ionic/'
+                }, {
+                    expand: true,
+                    src: ['bower_components/ionic/scss/**/*'],
+                    flatten: true,
+                    dest: '1/lib/ionic/scss/'
+                }, {
+                    expand: true,
+                    cwd: '1/lib/',
+                    src: ['**/*'],
+                    dest: 'www/lib/'
+                }]
             },
             build: {
-                files: [
-                     {expand: true, src: ['src/*.html'], flatten: true, dest: 'www/'},
-                     {expand: true, src: ['src/templates/*.html'], flatten: true, dest: 'www/templates/'}
-                ]
+                files: [{
+                    expand: true,
+                    src: ['src/*.html'],
+                    flatten: true,
+                    dest: 'www/'
+                }, {
+                    expand: true,
+                    src: ['src/templates/*.html'],
+                    flatten: true,
+                    dest: 'www/templates/'
+                }]
             }
         },
 
@@ -381,77 +503,71 @@ module.exports = function(grunt) {
             },
         },
 
-/*main: {
-    files: [
-      // includes files within path
-      {expand: true, src: ['path/*'], dest: 'dest/', filter: 'isFile'},
-
-      // includes files within path and its sub-directories
-      {expand: true, src: ['path/**'], dest: 'dest/'},
-
-      // makes all src relative to cwd
-      {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
-
-      // flattens results to a single level
-      {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'}
-    ]
-  } */
-
+        /* !COMPRESS */
         compress: {
-            build: {
+            all: {
                 options: {
-                    archive: '<%= pkg.appname %>.src.<%= pkg.appversion %>.zip'
+                    archive: '../../<%= pkg.name %>.all.<%= pkg.version %>.zip'
                 },
                 files: [
-                     {expand: true, src: ['src/**'], dest: '.'}
+                    {
+                        expand: true,
+                        cwd: '.',
+                        src: ['**/*'],
+                    }
                 ]
             },
-            package: {
+            src: {
                 options: {
-                    archive: '<%= pkg.appname %>.<%= pkg.appversion %>.zip'
+                    archive: '../../<%= pkg.name %>.src.<%= pkg.version %>.zip'
                 },
                 files: [
-                     {expand: true, src: ['build/**'], dest: '.'}
+                    {
+                        expand: true,
+                        cwd: '.',
+                        src: ['config.xml','hooks/**/*','ionic.project','merges/**/*','package.json','plugins/**/*','res/**/*','src/**/*']
+                    }
                 ]
             }
         },
-        'ftp-deploy': {
-			build: {
-				auth: {
-				  host: 'server.com',
-				  port: 21,
-				  authKey: 'key1' // .ftppass
-				},
-				src: 'path/to/source/folder',
-				dest: '/path/to/destination/folder',
-				exclusions: ['build/**/.DS_Store', 'build/**/Thumbs.db', 'build/**/*.git*']
-			}
-		},
 
-        /* NETTOYAGE */
-        clean: ['build/js', 'build/css', 'build/img']
 
-	});
 
-	grunt.registerTask('default', ['devUpdate', 'watch']);
-    grunt.registerTask('dev', [/*'watch',*/ 'sass', 'jshint', /*'csslint',*/ /*'concat',*/ 'autoprefixer', 'uglify', 'imagemin']);
-    grunt.registerTask('build', ['sass', /*'concat', */'autoprefixer', 'uglify', 'imagemin', 'compress','ftp-deploy']);
-    grunt.registerTask('clean', ['clean']);
+        /* !CLEAN */
+        clean: {
+            uninstall: ['www/*','src/*','1/lib/ionic','platforms','bower_components','config.xml','merges/*/*'],
+            default: ['www/*','src/*'],
+        }
+    });
 
+
+    /* !LOAD PLUGINS */
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-curl');
+    grunt.loadNpmTasks('grunt-exec');
+    grunt.loadNpmTasks('grunt-ftp-deploy');
+    grunt.loadNpmTasks('grunt-open');
+    grunt.loadNpmTasks('grunt-text-replace');
+
+
+    /* !REGISTER TASKS */
+    grunt.registerTask('install', ['replace','exec:init','copy:init','sass:start','compile','copy:init','build']);
+    grunt.registerTask('default', ['copy:start', 'sass:start', 'watch']);
+
+    grunt.registerTask('save', ['compile','build','compress:all','compress:src']);
+    grunt.registerTask('compile', ['exec:build', 'replace:version', 'copy:start', 'sass:build', 'imagemin:build', 'uglify:build']);
+    grunt.registerTask('build', ['exec:buildios','exec:buildandroid','exec:buildff']);
+    grunt.registerTask('run', ['exec:runios','exec:runandroid']);
+
+    grunt.registerTask('cleanall', ['clean:default']);
+    grunt.registerTask('uninstall', ['exec:clean','clean:uninstall']);
 }
-
-/*
-
-	TODO
-	----
-    files deleting
-    livereload deleting in build mode
-    karma tests
-	start a http server
-	launch chrome in a particular URL
-	download a mysql database
-	launch a xcode compilation
-	modify version number
-	launch a java compile
-
-*/

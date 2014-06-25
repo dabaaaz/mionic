@@ -17,22 +17,38 @@
  specific language governing permissions and limitations
  under the License.
 -->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
-        version   = "2.0.0">
-
-    <!-- Preferences for Android -->
+<widget id="com.ionicframework.starter" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
-<<<<<<< HEAD
-=======
     <preference name="AndroidLaunchMode" value="singleTop" />
->>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
-
-    <!-- This is required for native Android hooks -->
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-
-	<preference name="SplashScreen" value="splash" />
-	<preference name="SplashScreenDelay" value="2000"/>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <name>Bank in the Pocket</name>
+    <description />
+    <author email="pierre@onzedix.fr" href="http://onzedix.fr/">
+        1110 Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <feature name="StatusBar">
+        <param name="android-package" onload="true" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
 </widget>

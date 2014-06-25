@@ -22,7 +22,7 @@ package com.ionicframework.starter;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
-public class Bankinthepocket extends CordovaActivity 
+public class BankinthePocket extends CordovaActivity 
 {
     @Override
     public void onCreate(Bundle savedInstanceState)

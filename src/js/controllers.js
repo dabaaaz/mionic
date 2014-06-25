@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('bankinthepocket.controllers', [])
 
 .controller('DashCtrl', function($scope) {
 })

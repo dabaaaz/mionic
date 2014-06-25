@@ -1,0 +1,15 @@
+{
+    "installs_allowed_from": ["*"],
+    "version": "1.0.1",
+    "name": "Open Web App",
+    "description": "Your new awesome Open Web App",
+    "launch_path": "/index.html",
+    "pkgName": "com.ionicframework.starter",
+    "developer": {
+        "name": "Studio 1110",
+        "url": "http://onzedix.fr"
+    },
+    "icons": {
+        "128": "img/128.png"
+    }
+}
