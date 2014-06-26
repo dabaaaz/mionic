@@ -1,5 +1,3 @@
-//- création des icones à partir du fichier icone.png vers le dossier RES
-//- archive des sources en [nom].[version].zip
 //- publication des executable vers 1110.fr/[nom]
 //- lancement des tests automatiques
 module.exports = function(grunt) {
@@ -143,13 +141,20 @@ module.exports = function(grunt) {
 
 
         /* !REPLACE */
+        /*
+    "name": "Bank in the Pocket",
+    "code": "bankinthepocket",
+    "description": "Application de gestion bancaire",
+    "version": "2.1.0",
+    "author": "Pierre Canthelou",
+        */
         replace: {
             start1: {
                 src: ['1/index.html'],
                 dest: 'src/index.html',
                 replacements: [{
                     from: 'Starter App',
-                    to: '<%= pkg.description %>'
+                    to: '<%= pkg.title %>'
                 },{
                     from: 'starter',
                     to: '<%= pkg.name %>'
@@ -171,10 +176,10 @@ module.exports = function(grunt) {
                     to: 'version="<%= pkg.version %>"'
                 },{
                     from: /<name>(.*)<\/name>/g,
-                    to: '<name><%= pkg.description %></name>'
+                    to: '<name><%= pkg.title %></name>'
                 },{
                     from: /<description>(.*)<\/description>/g,
-                    to: '<description></description>'
+                    to: '<description><%= pkg.description %></description>'
                 }]
             },
             start4: {
@@ -185,10 +190,21 @@ module.exports = function(grunt) {
                     to: '"version": "<%= pkg.version %>"'
                 },{
                     from: /"name": "([^"]+)"/g,
-                    to: '"name": "<%= pkg.name %>"'
+                    to: '"name": "<%= pkg.title %>"'
                 },{
                     from: /"description": "([^"]+)"/g,
                     to: '"description": "<%= pkg.description %>"'
+                }]
+            },
+            start5: {
+                src: ['ionic.project'],
+                overwrite: true,
+                replacements: [{
+                    from: /"name": "([^"]+)",/g,
+                    to: '"name": "<%= pkg.title %>"'
+                },{
+                    from: /"app_id": "([^"]+)"/g,
+                    to: '"app_id": "<%= pkg.name %>"'
                 }]
             },
             version: {
@@ -267,6 +283,11 @@ module.exports = function(grunt) {
                     src: ['src/templates/*.html'],
                     flatten: true,
                     dest: 'www/templates/'
+                }, {
+                    expand: true,
+                    cwd: 'src/res/',
+                    src: ['**/*'],
+                    dest: 'www/res/'
                 }]
             },
             init: {
@@ -300,6 +321,11 @@ module.exports = function(grunt) {
                     cwd: '1/lib/',
                     src: ['**/*'],
                     dest: 'www/lib/'
+                }, {
+                    expand: true,
+                    cwd: 'src/res/',
+                    src: ['**/*'],
+                    dest: 'www/res/'
                 }]
             },
             build: {
@@ -317,7 +343,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // icons & splash screens generator
+        /* RESPONSIVE IMAGE */
         // don't forget to get res/bigicon.png (>= 1024*1024) & res/bigsplash.png (>= 640*1136)
         responsive_images: {
             android_icons: {
@@ -338,9 +364,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    src: ['bigicon.png'],
-                    cwd: 'res/',
-                    dest: 'res/android/icons'
+                    src: ['icon.png'],
+                    cwd: '1/',
+                    dest: 'src/res/icons/android/'
                 }]
             },
             android_splashscreens: {
@@ -349,29 +375,49 @@ module.exports = function(grunt) {
                       width: 320,
                       height: 426,
                       aspectRatio: false,
-                      name: 'ldpi'
+                      name: 'ldpi-portrait'
+                    },{
+                      width: 426,
+                      height: 320,
+                      aspectRatio: false,
+                      name: 'ldpi-landscape'
                     },{
                       width: 320,
                       height: 470,
                       aspectRatio: false,
-                      name: 'mdpi'
+                      name: 'mdpi-portrait'
+                    },{
+                      width: 470,
+                      height: 320,
+                      aspectRatio: false,
+                      name: 'mdpi-landscape'
                     },{
                       width: 480,
                       height: 640,
                       aspectRatio: false,
-                      name: 'hdpi'
+                      name: 'hdpi-portrait'
+                    },{
+                      width: 640,
+                      height: 480,
+                      aspectRatio: false,
+                      name: 'hdpi-landscape'
                     },{
                       width: 720,
                       height: 960,
                       aspectRatio: false,
-                      name: 'xhdpi'
+                      name: 'xhdpi-portrait'
+                    },{
+                      width: 960,
+                      height: 720,
+                      aspectRatio: false,
+                      name: 'xhdpi-landscape'
                     }]
                 },
                 files: [{
                     expand: true,
-                    src: ['bigsplash.png'],
-                    cwd: 'res/',
-                    dest: 'res/android/splashs'
+                    src: ['screen.png'],
+                    cwd: '1/',
+                    dest: 'src/res/screens/android/'
                 }]
             },
             firefoxos_icons: {
@@ -386,28 +432,24 @@ module.exports = function(grunt) {
               },
               files: [{
                 expand: true,
-                src: ['bigicon.png'],
-                cwd: 'res/',
-                dest: 'res/firefoxos/icons'
+                src: ['icon.png'],
+                cwd: '1/',
+                dest: 'src/res/icons/firefoxos/'
               }]
             },
             firefoxos_splashscreens: {
               options: {
                 sizes: [{
                   width: 320,
-                  aspectRatio: false,
-                  height: 480
-                }/*,{
-                  width: 500,
-                  aspectRatio: false,
-                  height: 800
-                }*/]
+                  height: 480,
+                  aspectRatio: false
+                }]
               },
               files: [{
                 expand: true,
-                src: ['bigsplash.png'],
-                cwd: 'res/',
-                dest: 'res/firefoxos/splashs'
+                src: ['screen.png'],
+                cwd: '1/',
+                dest: 'src/res/screens/firefoxos/'
               }]
             },
             ios_icons: {
@@ -465,9 +507,9 @@ module.exports = function(grunt) {
               },
               files: [{
                 expand: true,
-                src: ['bigicon.png'],
-                cwd: 'res/',
-                dest: 'res/ios/icons'
+                src: ['icon.png'],
+                cwd: '1/',
+                dest: 'src/res/icons/ios/'
               }]
             },
             ios_splashscreens: {
@@ -476,29 +518,29 @@ module.exports = function(grunt) {
                       width: 320,
                       height: 480,
                       aspectRatio: false,
-                      name: 'default'
+                      name: 'iphone-portrait'
                     },{
                       width: 640,
                       height: 960,
                       aspectRatio: false,
-                      name: 'default@2x'
+                      name: 'iphone-portrait-2x'
                     },{
                       width: 640,
                       height: 1136,
                       aspectRatio: false,
-                      name: 'default-568h@2x'
+                      name: 'iphone-portrait-568h'
                     },{
                       width: 1280,
                       height: 2272,
                       aspectRatio: false,
-                      name: 'portrait@2x'
+                      name: 'iphone-portrait-568h-2x'
                     }]
                 },
                 files: [{
                     expand: true,
-                    src: ['bigsplash.png'],
-                    cwd: 'res/',
-                    dest: 'res/ios/splashs'
+                    src: ['screen.png'],
+                    cwd: '1/',
+                    dest: 'src/res/screens/ios/'
                 }]
             },
         },
@@ -535,8 +577,9 @@ module.exports = function(grunt) {
 
         /* !CLEAN */
         clean: {
-            uninstall: ['www/*','src/*','1/lib/ionic','platforms','bower_components','config.xml','merges/*/*'],
-            default: ['www/*','src/*'],
+            uninstall: ['www/*','src/*','1/lib/ionic','platforms','bower_components','config.xml','merges/*','res/*'],
+            install: ['bower_components'],
+            default: ['www/*','src/*']
         }
     });
 
@@ -556,18 +599,21 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-ftp-deploy');
     grunt.loadNpmTasks('grunt-open');
+    grunt.loadNpmTasks('grunt-responsive-images');
     grunt.loadNpmTasks('grunt-text-replace');
 
 
     /* !REGISTER TASKS */
-    grunt.registerTask('install', ['replace','exec:init','copy:init','sass:start','compile','copy:init','build']);
+    grunt.registerTask('install', ['replace','exec:init','responsive_images','copy:init','clean:install','sass:start','compile','build']);
     grunt.registerTask('default', ['copy:start', 'sass:start', 'watch']);
 
     grunt.registerTask('save', ['compile','build','compress:all','compress:src']);
-    grunt.registerTask('compile', ['exec:build', 'replace:version', 'copy:start', 'sass:build', 'imagemin:build', 'uglify:build']);
+    grunt.registerTask('compile', ['exec:build', 'replace:version', 'copy:start', 'sass:build', 'imagemin:build', 'uglify:build', 'copy:start']);
     grunt.registerTask('build', ['exec:buildios','exec:buildandroid','exec:buildff']);
     grunt.registerTask('run', ['exec:runios','exec:runandroid']);
 
     grunt.registerTask('cleanall', ['clean:default']);
     grunt.registerTask('uninstall', ['exec:clean','clean:uninstall']);
+
+    grunt.registerTask('test', ['responsive_images']);
 }

@@ -4,11 +4,6 @@
         "uninstalled": []
     },
     "config_munge": {
-<<<<<<< HEAD
-        "config.xml": {
-            "/*": {
-                "<feature name=\"Device\"><param name=\"firefoxos-package\" value=\"Device\" /></feature>": 1
-=======
         "files": {
             "config.xml": {
                 "parents": {
@@ -23,7 +18,6 @@
                         }
                     ]
                 }
->>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
             }
         }
     },
@@ -36,8 +30,6 @@
         },
         "org.apache.cordova.statusbar": {
             "PACKAGE_NAME": "com.ionicframework.starter"
-<<<<<<< HEAD
-=======
         },
         "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.starter"
@@ -47,7 +39,6 @@
         },
         "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "com.ionicframework.starter"
->>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         }
     },
     "dependent_plugins": {}

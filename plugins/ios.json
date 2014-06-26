@@ -4,16 +4,6 @@
         "uninstalled": []
     },
     "config_munge": {
-<<<<<<< HEAD
-        "config.xml": {
-            "/*": {
-                "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>": 1,
-                "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>": 1,
-                "<feature name=\"StatusBar\"><param name=\"ios-package\" onload=\"true\" value=\"CDVStatusBar\" /></feature>": 1,
-                "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />": 1,
-                "<preference name=\"StatusBarBackgroundColor\" value=\"#000000\" />": 1,
-                "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />": 1
-=======
         "files": {
             "config.xml": {
                 "parents": {
@@ -84,7 +74,6 @@
                         }
                     ]
                 }
->>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
             }
         }
     },
@@ -97,8 +86,6 @@
         },
         "org.apache.cordova.statusbar": {
             "PACKAGE_NAME": "com.ionicframework.starter"
-<<<<<<< HEAD
-=======
         },
         "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.starter"
@@ -108,7 +95,6 @@
         },
         "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "com.ionicframework.starter"
->>>>>>> 81081e4e4e8e83deb61219409e9b92ecf55b86f2
         }
     },
     "dependent_plugins": {}

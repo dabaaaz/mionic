@@ -12,7 +12,18 @@ Pour chaque fonction identifiée pour la production d'une version suivre le proc
 Tous les fichiers sources destinés à être transformés ou manipulés doivent se trouver dans le dossier _src_ et être manipulé par Grunt via le fichier *Gruntfile.js*
 
 **Les tâches GRUNT :**
-Pour initialiser le nouveau projet, après avoir changé le numéro de version dans package.json et autres paramètres :
+Pour initialiser le nouveau projet, après avoir changé le numéro de version dans package.json, modifié certains graphismes dans le dossier 1 et autres paramètres pour les plateformes... :
+
+```
+    "name": "Nom de l'application",
+    "code": "nomdeapplication",
+    "description": "Une description",
+    "version": "a.b.c",
+    "author": "Nom Prénom",
+```
+
+L'installation de l'ensemble, première compilation et génération pour les 3 plateformes.
+
 ```
 	grunt install
 ```
@@ -30,6 +41,15 @@ Pour produire les compilations pour les plateformes après un build et les lance
 	grunt run
 ```
 
+Pour faire une sauvegarde complète du dossier
+```
+    grunt save
+```
+ou une sauvegarde uniquement des sources
+```
+    grunt save:src
+```
+
 # Firefox OS
 https://developer.mozilla.org/en-US/Apps/Tools_and_frameworks/common_libraries_and_frameworks
 
@@ -45,15 +65,15 @@ https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
 http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs
 
 Création des splashes Android (9-patches) : http://romannurik.github.io/AndroidAssetStudio/nine-patches.html
-Les icônes sont dans le dossier res et les splashscreens dans les dossiers de chaque plateforme.
+Les icônes sont dans le dossier src/icons et les splashscreens dans le dossier src/screens.
 
 ```
 	<icon src="res/ios/icon.png" platform="ios" width="57" height="57" density="mdpi" />
     <platform name="amazon-fireos">
-        <icon src="res/android/ldpi.png" density="ldpi" />
-        <icon src="res/android/mdpi.png" density="mdpi" />
-        <icon src="res/android/hdpi.png" density="hdpi" />
-        <icon src="res/android/xhdpi.png" density="xhdpi" />
+        <icon src="src/icons/android/ldpi.png" density="ldpi" />
+        <icon src="src/icons/android/mdpi.png" density="mdpi" />
+        <icon src="src/icons/android/hdpi.png" density="hdpi" />
+        <icon src="src/icons/android/xhdpi.png" density="xhdpi" />
     </platform>
     <platform name="android">
         <icon src="res/android/ldpi.png" density="ldpi" />

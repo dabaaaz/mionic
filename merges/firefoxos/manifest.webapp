@@ -1,0 +1,15 @@
+{
+    "installs_allowed_from": ["*"],
+    "version": "2.1.0",
+    "name": "Bank in the Pocket",
+    "description": "Application de gestion bancaire",
+    "launch_path": "/index.html",
+    "pkgName": "com.ionicframework.starter",
+    "developer": {
+        "name": "Bank in the Pocket",
+        "url": "http://onzedix.fr"
+    },
+    "icons": {
+        "128": "img/128.png"
+    }
+}
