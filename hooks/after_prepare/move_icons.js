@@ -32,13 +32,13 @@ XHDPI- icon-96x96
 */
 
 {
-    "res/android/icons/bigicon-hdpi.png": "platforms/android/res/drawable-hdpi/icon.png"
+    "src/res/icons/android/icon-hdpi.png": "platforms/android/res/drawable-hdpi/icon.png"
 }, {
-    "res/android/icons/bigicon-ldpi.png": "platforms/android/res/drawable-ldpi/icon.png"
+    "src/res/icons/android/icon-ldpi.png": "platforms/android/res/drawable-ldpi/icon.png"
 }, {
-    "res/android/icons/bigicon-mdpi.png": "platforms/android/res/drawable-mdpi/icon.png"
+    "src/res/icons/android/icon-mdpi.png": "platforms/android/res/drawable-mdpi/icon.png"
 }, {
-    "res/android/icons/bigicon-xhdpi.png": "platforms/android/res/drawable-xhdpi/icon.png"
+    "src/res/icons/android/icon-xhdpi.png": "platforms/android/res/drawable-xhdpi/icon.png"
 },
 
 /*
@@ -53,13 +53,13 @@ xhdpi : 720*960
  */
 
 {
-    "res/android/splashs/bigsplash-hdpi.png": "platforms/android/res/drawable-hdpi/splash.png"
+    "src/res/screens/android/screen-hdpi-portrait.png": "platforms/android/res/drawable-hdpi/splash.png"
 }, {
-    "res/android/splashs/bigsplash-ldpi.png": "platforms/android/res/drawable-ldpi/splash.png"
+    "src/res/screens/android/screen-ldpi-portrait.png": "platforms/android/res/drawable-ldpi/splash.png"
 }, {
-    "res/android/splashs/bigsplash-mdpi.png": "platforms/android/res/drawable-mdpi/splash.png"
+    "src/res/screens/android/screen-mdpi-portrait.png": "platforms/android/res/drawable-mdpi/splash.png"
 }, {
-    "res/android/splashs/bigsplash-xhdpi.png": "platforms/android/res/drawable-xhdpi/splash.png"
+    "src/res/screens/android/screen-xhdpi-portrait.png": "platforms/android/res/drawable-xhdpi/splash.png"
 },
 
 /*
@@ -71,34 +71,34 @@ REDO : 57 + 57@2x + 50 + 50@2x
 */
 
 {
-    "res/ios/bigicon-small@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-small@2x.png"
+    "src/res/icons/ios/icon-small@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-small@2x.png"
 }, {
-    "res/ios/bigicon-small.png": "platforms/ios/HelloCordova/Resources/icons/icon-small.png"
+    "src/res/icons/ios/icon-small.png": "platforms/ios/HelloCordova/Resources/icons/icon-small.png"
 }, {
-    "res/ios/bigicon-40@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-40@2x.png"
+    "src/res/icons/ios/icon-40@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-40@2x.png"
 }, {
-    "res/ios/bigicon-40.png": "platforms/ios/HelloCordova/Resources/icons/icon-40.png"
+    "src/res/icons/ios/icon-40.png": "platforms/ios/HelloCordova/Resources/icons/icon-40.png"
 }, {
-    "res/ios/bigicon-50@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-50@2x.png"
+    "src/res/icons/ios/icon-50@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-50@2x.png"
 }, {
-    "res/ios/bigicon-50.png": "platforms/ios/HelloCordova/Resources/icons/icon-50.png"
+    "src/res/icons/ios/icon-50.png": "platforms/ios/HelloCordova/Resources/icons/icon-50.png"
 }, {
-    "res/ios/bigicon@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon@2x.png"
+    "src/res/icons/ios/icon@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon@2x.png"
 }, {
-    "res/ios/bigicon.png": "platforms/ios/HelloCordova/Resources/icons/icon.png"
+    "src/res/icons/ios/icon.png": "platforms/ios/HelloCordova/Resources/icons/icon.png"
 }, {
-    "res/ios/bigicon-60@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-60@2x.png"
+    "src/res/icons/ios/icon-60@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-60@2x.png"
 }, {
-    "res/ios/bigicon-60.png": "platforms/ios/HelloCordova/Resources/icons/icon-60.png"
+    "src/res/icons/ios/icon-60.png": "platforms/ios/HelloCordova/Resources/icons/icon-60.png"
 }, {
-    "res/ios/bigicon-72@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-72@2x.png"
+    "src/res/icons/ios/icon-72@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-72@2x.png"
 }, {
-    "res/ios/bigicon-72.png": "platforms/ios/HelloCordova/Resources/icons/icon-72.png"
+    "src/res/icons/ios/icon-72.png": "platforms/ios/HelloCordova/Resources/icons/icon-72.png"
 }, {
-    "res/ios/bigicon-76@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-76@2x.png"
+    "src/res/icons/ios/icon-76@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-76@2x.png"
 }, {
-    "res/ios/bigicon-76.png": "platforms/ios/HelloCordova/Resources/icons/icon-76.png"
-}, 
+    "src/res/icons/ios/icon-76.png": "platforms/ios/HelloCordova/Resources/icons/icon-76.png"
+},
 
 /*
 
@@ -110,14 +110,14 @@ KO : iPad ones
 */
 
 {
-    "res/ios/splashs/bigsplash-default-568h@2x.png": "platforms/ios/HelloCordova/Resources/splash/Default-568h@2x~iphone.png"
-}, { 
-    "res/ios/splashs/bigsplash-default@2x.png": "platforms/ios/HelloCordova/Resources/splash/Default~iphone.png"
+    "src/res/screens/ios/screen-iphone-portrait-568h.png": "platforms/ios/HelloCordova/Resources/splash/Default-568h@2x~iphone.png"
 }, {
-    "res/ios/splashs/Default@2x~iphone.png": "platforms/ios/HelloCordova/Resources/splash/Default@2x~iphone.png"
+    "src/res/screens/ios/screen-iphone-portrait.png": "platforms/ios/HelloCordova/Resources/splash/Default~iphone.png"
 }, {
-    "res/ios/splashs/bigsplash-portrait@2x.png": "platforms/ios/HelloCordova/Resources/splash/Portrait@2x.png"
-},
+    "src/res/screens/ios/screen-iphone-portrait-2x.png": "platforms/ios/HelloCordova/Resources/splash/Default@2x~iphone.png"
+}/*, {
+    "src/res/screens/ios/   bigsplash-portrait@2x.png": "platforms/ios/HelloCordova/Resources/splash/Portrait@2x.png"
+}*/,
 
 /*
 
@@ -126,11 +126,11 @@ FXOS icons
  */
 
 {
-    "res/firefoxos/icons/bigicon-30.png": "platforms/firefoxos/www/icons/bigicon-30.png"
-}, { 
-    "res/firefoxos/icons/bigicon-60.png": "platforms/firefoxos/www/icons/bigicon-60.png"
+    "src/res/icons/firefoxos/icon-30.png": "platforms/firefoxos/www/icons/bigicon-30.png"
 }, {
-    "res/firefoxos/icons/bigicon-128.png": "platforms/firefoxos/www/icons/bigicon-128.png"
+    "src/res/icons/firefoxos/icon-60.png": "platforms/firefoxos/www/icons/bigicon-60.png"
+}, {
+    "src/res/icons/firefoxos/icon-128.png": "platforms/firefoxos/www/icons/bigicon-128.png"
 }
 
 ];
@@ -145,11 +145,11 @@ var rootdir = process.argv[2];
 // See http://cordova.apache.org/docs/en/3.5.0/guide_platforms_firefoxos_index.md.html to make the www/manifest.webapp file
 if(!fs.existsSync("platforms/firefoxos/www/icons")){
  fs.mkdirSync("platforms/firefoxos/www/icons", 0755, function(err){
-   if(err){ 
+   if(err){
      console.log(err);
      response.send("ERROR! Can't make the directory! \n"); // echo the result back
    }
- });   
+ }); 
 }
 
 filestocopy.forEach(function(obj) {

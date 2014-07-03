@@ -529,12 +529,12 @@ module.exports = function(grunt) {
                       height: 1136,
                       aspectRatio: false,
                       name: 'iphone-portrait-568h'
-                    },{
+                    }/*,{
                       width: 1280,
                       height: 2272,
                       aspectRatio: false,
                       name: 'iphone-portrait-568h-2x'
-                    }]
+                    }*/]
                 },
                 files: [{
                     expand: true,
