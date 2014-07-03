@@ -10,7 +10,7 @@
 //var path_from_fxos = "res/firefoxos/";
 
 //var path_to_android = "platforms/android/res/";
-//var path_to_ios = "platforms/ios/HelloCordova/Resources/";
+//var path_to_ios = "platforms/ios/Bank in the Pocket/Resources/";
 //var path_to_fxos : "res/firefoxos/";
 
 
@@ -50,6 +50,12 @@ mdpi : 320*470
 hdpi : 480*640
 xhdpi : 720*960
 
+Penser à ajouter dans platforms/android/cordova/defaults.xml, juste avant le </widget>
+
+<preference name="SplashScreen" value="splash" />
+<preference name="SplashScreenDelay" value="2000"/>
+
+
  */
 
 {
@@ -71,33 +77,33 @@ REDO : 57 + 57@2x + 50 + 50@2x
 */
 
 {
-    "src/res/icons/ios/icon-small@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-small@2x.png"
+    "src/res/icons/ios/icon-small@x2.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-small@2x.png"
 }, {
-    "src/res/icons/ios/icon-small.png": "platforms/ios/HelloCordova/Resources/icons/icon-small.png"
+    "src/res/icons/ios/icon-small.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-small.png"
 }, {
-    "src/res/icons/ios/icon-40@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-40@2x.png"
+    "src/res/icons/ios/icon-40@x2.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-40@2x.png"
 }, {
-    "src/res/icons/ios/icon-40.png": "platforms/ios/HelloCordova/Resources/icons/icon-40.png"
+    "src/res/icons/ios/icon-40.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-40.png"
 }, {
-    "src/res/icons/ios/icon-50@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-50@2x.png"
+    "src/res/icons/ios/icon-50@x2.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-50@2x.png"
 }, {
-    "src/res/icons/ios/icon-50.png": "platforms/ios/HelloCordova/Resources/icons/icon-50.png"
+    "src/res/icons/ios/icon-50.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-50.png"
 }, {
-    "src/res/icons/ios/icon@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon@2x.png"
+    "src/res/icons/ios/icon-basic@x2.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon@2x.png"
 }, {
-    "src/res/icons/ios/icon.png": "platforms/ios/HelloCordova/Resources/icons/icon.png"
+    "src/res/icons/ios/icon-basic.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon.png"
 }, {
-    "src/res/icons/ios/icon-60@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-60@2x.png"
+    "src/res/icons/ios/icon-60@x2.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-60@2x.png"
 }, {
-    "src/res/icons/ios/icon-60.png": "platforms/ios/HelloCordova/Resources/icons/icon-60.png"
+    "src/res/icons/ios/icon-60.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-60.png"
 }, {
-    "src/res/icons/ios/icon-72@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-72@2x.png"
+    "src/res/icons/ios/icon-72@x2.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-72@2x.png"
 }, {
-    "src/res/icons/ios/icon-72.png": "platforms/ios/HelloCordova/Resources/icons/icon-72.png"
+    "src/res/icons/ios/icon-72.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-72.png"
 }, {
-    "src/res/icons/ios/icon-76@2x.png": "platforms/ios/HelloCordova/Resources/icons/icon-76@2x.png"
+    "src/res/icons/ios/icon-76@x2.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-76@2x.png"
 }, {
-    "src/res/icons/ios/icon-76.png": "platforms/ios/HelloCordova/Resources/icons/icon-76.png"
+    "src/res/icons/ios/icon-76.png": "platforms/ios/Bank in the Pocket/Resources/icons/icon-76.png"
 },
 
 /*
@@ -110,13 +116,13 @@ KO : iPad ones
 */
 
 {
-    "src/res/screens/ios/screen-iphone-portrait-568h.png": "platforms/ios/HelloCordova/Resources/splash/Default-568h@2x~iphone.png"
+    "src/res/screens/ios/screen-iphone-portrait-568h.png": "platforms/ios/Bank in the Pocket/Resources/splash/Default-568h@2x~iphone.png"
 }, {
-    "src/res/screens/ios/screen-iphone-portrait.png": "platforms/ios/HelloCordova/Resources/splash/Default~iphone.png"
+    "src/res/screens/ios/screen-iphone-portrait.png": "platforms/ios/Bank in the Pocket/Resources/splash/Default~iphone.png"
 }, {
-    "src/res/screens/ios/screen-iphone-portrait-2x.png": "platforms/ios/HelloCordova/Resources/splash/Default@2x~iphone.png"
+    "src/res/screens/ios/screen-iphone-portrait-2x.png": "platforms/ios/Bank in the Pocket/Resources/splash/Default@2x~iphone.png"
 }/*, {
-    "src/res/screens/ios/   bigsplash-portrait@2x.png": "platforms/ios/HelloCordova/Resources/splash/Portrait@2x.png"
+    "src/res/screens/ios/   bigsplash-portrait@2x.png": "platforms/ios/Bank in the Pocket/Resources/splash/Portrait@2x.png"
 }*/,
 
 /*
