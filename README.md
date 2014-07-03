@@ -143,3 +143,38 @@ Create a css subdirectory within merges/android, then add a corresponding overri
 body { font-size:14px; }
 ```
 When you rebuild the project, the Android version features the custom font size, while others remain unchanged.
+
+# Note
+
+- Pour partir encore plus propre, démarrer avec le fichier config suivant :
+
+```
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Bank in the Pocket</name>
+    <description>
+        Application de gestion bancaire
+    </description>
+    <author email="pierre@onzedix.fr" href="http://onzedix.fr/">
+        1110 Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <feature name="StatusBar">
+      <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
+</widget>
+```
+
+- Gérer les plugins dans le dossier plugins, il se pourrait qu'il y en ait trop et qu'une alert s'affiche au lancement de l'émulateur Android
+
+- Gérer la supression du whitescreen avant le splash Android, dans platforms/android/cordova/defaults.xml, juste avant le </widget>
+
+```
+<preference name="SplashScreen" value="splash" />
+<preference name="SplashScreenDelay" value="2000"/>
+```

@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                 stderr: true
             },
             init: {
-                command: 'sudo npm update;bower install ionic#1 --allow-root;sudo ionic platform add ios;sudo ionic platform add android;sudo ionic platform add firefoxos;',
+                command: 'sudo npm update;bower install ionic#1 --allow-root;sudo ionic platform ios;sudo ionic platform android;sudo ionic platform firefoxos;',
                 stdout: true,
                 stderr: true
             },
